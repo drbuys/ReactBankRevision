@@ -19815,8 +19815,9 @@
 	                'Total money: £',
 	                this.totalOfAllAccounts()
 	            ),
-	            React.createElement(AccountBox, {
-	                onAccountDelete: this.deleteAccount,
+	            React.createElement(AccountBox
+	            //showMe={this.}
+	            , { onAccountDelete: this.deleteAccount,
 	                type: "Personal",
 	                accounts: this.separateAccountsByType('Personal'),
 	                totalType: this.totalByAccountType('Personal')
@@ -19839,48 +19840,71 @@
 /* 160 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
+	"use strict";
 	
 	var React = __webpack_require__(1);
 	
 	var AccountBox = React.createClass({
-	    displayName: 'AccountBox',
+	    displayName: "AccountBox",
 	
+	
+	    getInitialState: function getInitialState() {
+	        return {
+	            showBox: false,
+	            account: this.props.accounts[0]
+	        };
+	    },
+	
+	    showDiv: function showDiv(acc) {
+	        console.log(acc);
+	        this.setState({ showBox: !this.state.showBox });
+	        this.setState({ account: acc });
+	    },
 	
 	    render: function render() {
-	        console.log(this.props.accounts);
 	        var allAccounts = this.props.accounts.map(function (acc, index) {
 	            var deleteMe = function () {
 	                this.props.onAccountDelete(acc.owner);
 	            }.bind(this);
+	            var clicky = function () {
+	                this.showDiv(acc);
+	            }.bind(this);
 	            return React.createElement(
-	                'div',
+	                "div",
 	                { key: index },
 	                React.createElement(
-	                    'p',
-	                    null,
-	                    'Name: ',
+	                    "p",
+	                    { onClick: clicky, value: acc },
+	                    "Name: ",
 	                    _.capitalize(acc.owner),
-	                    ', Amount: £',
+	                    ", Amount: £",
 	                    acc.amount
 	                ),
 	                React.createElement(
-	                    'button',
+	                    "button",
 	                    { onClick: deleteMe },
-	                    'Delete'
+	                    "Delete"
 	                )
 	            );
 	        }.bind(this));
 	
+	        var classNameForDiv = this.state.showBox ? "boxShow" : "boxHidden";
 	        return React.createElement(
-	            'div',
+	            "div",
 	            null,
 	            React.createElement(
-	                'h4',
+	                "h4",
 	                null,
 	                this.props.type,
-	                ' Account Total: £',
+	                " Account Total: £",
 	                this.props.totalType
+	            ),
+	            React.createElement(
+	                "div",
+	                { className: classNameForDiv },
+	                _.capitalize(this.state.account.owner),
+	                ": ",
+	                this.state.account.info
 	            ),
 	            allAccounts
 	        );
@@ -19898,19 +19922,24 @@
 	
 	module.exports = [{ owner: "jay",
 	  amount: 125.50,
-	  type: "Personal"
+	  type: "Personal",
+	  info: "Need to check overdraft allowance"
 	}, { owner: "val",
 	  amount: 55125.10,
-	  type: "Personal"
+	  type: "Personal",
+	  info: "Na"
 	}, { owner: "marc",
 	  amount: 400.00,
-	  type: "Personal"
+	  type: "Personal",
+	  info: "Ok"
 	}, { owner: "keith",
 	  amount: 220.25,
-	  type: "Business"
+	  type: "Business",
+	  info: "Confirm if business account"
 	}, { owner: "rick",
 	  amount: 100000.00,
-	  type: "Business"
+	  type: "Business",
+	  info: "Too much money!!!!"
 	}];
 
 /***/ },
@@ -36356,7 +36385,8 @@
 	        return {
 	            owner: "",
 	            amount: 0,
-	            type: "Personal"
+	            type: "Personal",
+	            info: ""
 	        };
 	    },
 	
@@ -36372,6 +36402,10 @@
 	
 	    handleAmountChange: function handleAmountChange(e) {
 	        this.setState({ amount: e.target.value });
+	    },
+	
+	    handleInfoChange: function handleInfoChange(e) {
+	        this.setState({ info: e.target.value });
 	    },
 	
 	    handleSubmit: function handleSubmit(e) {
@@ -36417,6 +36451,12 @@
 	                        "Business"
 	                    )
 	                ),
+	                React.createElement("input", {
+	                    type: "text",
+	                    placeholder: "Account Info",
+	                    value: this.state.info,
+	                    onChange: this.handleInfoChange
+	                }),
 	                React.createElement("input", { type: "submit", value: "Add Account" })
 	            )
 	        );

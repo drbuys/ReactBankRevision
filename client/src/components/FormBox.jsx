@@ -6,7 +6,8 @@ var FormBox = React.createClass({
         return {
             owner: "",
             amount: 0,
-            type: "Personal"
+            type: "Personal",
+            info: ""
         };
     },
 
@@ -22,6 +23,10 @@ var FormBox = React.createClass({
 
     handleAmountChange: function(e){
         this.setState({amount: e.target.value});
+    },
+
+    handleInfoChange: function(e){
+        this.setState({info: e.target.value});
     },
 
     handleSubmit: function(e){
@@ -50,6 +55,12 @@ var FormBox = React.createClass({
                         <option value="Personal">Personal</option>
                         <option value="Business">Business</option>
                     </select>
+                    <input
+                        type="text"
+                        placeholder="Account Info"
+                        value={this.state.info}
+                        onChange={this.handleInfoChange}
+                    />
                     <input type="submit" value="Add Account"/>
                 </form>
             </div>

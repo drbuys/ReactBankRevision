@@ -65,6 +65,7 @@ var BankBox = React.createClass({
                 <h4>Bank Box</h4>
                 <p>Total money: £{this.totalOfAllAccounts()}</p>
                 <AccountBox
+                    //showMe={this.}
                     onAccountDelete={this.deleteAccount}
                     type={"Personal"}
                     accounts={this.separateAccountsByType('Personal')}
