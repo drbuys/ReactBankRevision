@@ -12,3 +12,9 @@
     visibility: hidden;
     height: 0px;
 }
+
+p:hover {
+    color:grey;
+    text-shadow: -1px -1px black;
+    cursor: pointer;
+}
