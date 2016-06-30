@@ -19810,7 +19810,7 @@
 	                'Bank'
 	            ),
 	            React.createElement(
-	                'p',
+	                'h4',
 	                null,
 	                'Total money: £',
 	                this.totalOfAllAccounts()

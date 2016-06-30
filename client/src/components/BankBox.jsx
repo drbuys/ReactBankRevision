@@ -63,7 +63,7 @@ var BankBox = React.createClass({
         return (
             <div>
                 <h3>Bank</h3>
-                <p>Total money: £{this.totalOfAllAccounts()}</p>
+                <h4>Total money: £{this.totalOfAllAccounts()}</h4>
                 <AccountBox
                     //showMe={this.}
                     onAccountDelete={this.deleteAccount}

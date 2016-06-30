@@ -19,8 +19,8 @@ input {
 
 h4 {
     text-decoration: underline overline;
-    color: black;
-
+    color: #fc7058;
+    opacity: 0.8;
 }
 
 h3 {
@@ -29,10 +29,11 @@ h3 {
     color: 	#fc7058;
     border-radius: 8px;
     box-shadow: 3px 3px 1px #fc7058;
+    opacity: 0.8;
 }
 
 .boxShow {
-    color:			#fc7058;
+    color: #fc7058;
     visibility: visible;
     font-size: 1.5em;
     font-family: sans-serif;
@@ -49,6 +50,6 @@ h3 {
 
 p:hover {
     color:	#fffa85;
-    text-shadow: -1px -1px black;
+    text-shadow: 1px 1px 3px #fc7058;
     cursor: pointer;
 }
