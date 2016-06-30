@@ -1,5 +1,38 @@
+body {
+    background-color: #804a62;
+    color:	#353754;
+    text-align: center;
+
+}
+
+form {
+    background-color: 	#6c82a3;
+    border-radius: 8px;
+    box-shadow: 3px 3px 1px #fc7058;
+}
+
+input {
+    margin: 5px;
+    border-radius: 5px;
+    box-shadow: 3px 3px 1px 	#fffa85;
+}
+
+h4 {
+    text-decoration: underline overline;
+    color: black;
+
+}
+
+h3 {
+    margin: 0;
+    background-color: 	#fffa85;
+    color: 	#fc7058;
+    border-radius: 8px;
+    box-shadow: 3px 3px 1px #fc7058;
+}
+
 .boxShow {
-    color:grey;
+    color:			#fc7058;
     visibility: visible;
     font-size: 1.5em;
     font-family: sans-serif;
@@ -7,6 +40,7 @@
     z-index: 1000;
     border-radius: 8px;
     display: inline-block;
+    box-shadow: 3px 3px 1px #fc7058;
 }
 .boxHidden {
     visibility: hidden;
@@ -14,7 +48,7 @@
 }
 
 p:hover {
-    color:grey;
+    color:	#fffa85;
     text-shadow: -1px -1px black;
     cursor: pointer;
 }

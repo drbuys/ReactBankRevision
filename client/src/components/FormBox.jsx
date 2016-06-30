@@ -38,6 +38,7 @@ var FormBox = React.createClass({
         return (
             <div>
                 <h3>Create a New Account</h3>
+                <br></br>
                 <form onSubmit={this.handleSubmit}>
                     <input
                         type="text"

@@ -62,7 +62,7 @@ var BankBox = React.createClass({
     render: function() {
         return (
             <div>
-                <h4>Bank Box</h4>
+                <h3>Bank</h3>
                 <p>Total money: £{this.totalOfAllAccounts()}</p>
                 <AccountBox
                     //showMe={this.}

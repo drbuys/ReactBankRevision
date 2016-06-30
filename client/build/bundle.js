@@ -19805,9 +19805,9 @@
 	            'div',
 	            null,
 	            React.createElement(
-	                'h4',
+	                'h3',
 	                null,
-	                'Bank Box'
+	                'Bank'
 	            ),
 	            React.createElement(
 	                'p',
@@ -36422,6 +36422,7 @@
 	                null,
 	                "Create a New Account"
 	            ),
+	            React.createElement("br", null),
 	            React.createElement(
 	                "form",
 	                { onSubmit: this.handleSubmit },
